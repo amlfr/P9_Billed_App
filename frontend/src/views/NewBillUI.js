@@ -53,9 +53,10 @@ export default () => {
                     <label for="commentary" class="bold-label">Commentaire</label>
                     <textarea class="form-control blue-border" data-testid="commentary" rows="3"></textarea>
                   </div>
-                  <div class="col-half">
+                  <div class="col-half file-input-container">
                     <label for="file" class="bold-label">Justificatif</label>
-                    <input required type="file" class="form-control blue-border" data-testid="file" />
+                    <input required type="file" class="form-control blue-border" data-testid="file" accept=".jpg, .jpeg, .png" />
+                    <div id="file-error-message">Unsupported file extension, please provide an image in the format .jpg, .jpeg or .png to get your bill acccepted.</div>
                   </div>
                 </div>
             </div>

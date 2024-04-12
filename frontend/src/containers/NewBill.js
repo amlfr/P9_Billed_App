@@ -20,6 +20,20 @@ export default class NewBill {
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
+   
+
+    //Checking for supported file extensions
+    const supportedFilesRegex = /\.(png|jpg|jpeg)$/i;
+    const fileErrorMessage = this.document.querySelector('#file-error-message');
+    
+
+    if (!supportedFilesRegex.test(fileName)) { 
+      fileErrorMessage.style.display = 'block'
+      return;
+    } 
+    fileErrorMessage.style.display = 'none'
+
+
     const formData = new FormData()
     const email = JSON.parse(localStorage.getItem("user")).email
     formData.append('file', file)
