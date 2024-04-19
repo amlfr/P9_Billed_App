@@ -58,6 +58,18 @@ export default class NewBill {
     e.preventDefault()
     console.log('e.target.querySelector(`input[data-testid="datepicker"]`).value', e.target.querySelector(`input[data-testid="datepicker"]`).value)
     const email = JSON.parse(localStorage.getItem("user")).email
+
+     //Checking for supported file extensions
+     const supportedFilesRegex = /\.(png|jpg|jpeg)$/i;
+     const fileErrorMessage = this.document.querySelector('#file-error-message');
+     
+ 
+     if (!supportedFilesRegex.test(this.fileName)) { 
+       fileErrorMessage.style.display = 'block'
+       return;
+     } 
+     fileErrorMessage.style.display = 'none'
+ 
     const bill = {
       email,
       type: e.target.querySelector(`select[data-testid="expense-type"]`).value,
