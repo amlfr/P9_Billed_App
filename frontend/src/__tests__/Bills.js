@@ -77,6 +77,7 @@ describe("Given I am connected as an employee", () => {
       window.localStorage.setItem('user', JSON.stringify({
         type: 'Employee'
       }))
+    });
   describe("When I navigate to the bills page", () => { 
     test("Fetches bills from mock API GET", async () => { 
       initBillPage(true, true);
@@ -123,11 +124,11 @@ describe("Given I am connected as an employee", () => {
         }});
       window.onNavigate(ROUTES_PATH.Bills);
       await new Promise(process.nextTick);
-      //console.log('screen after 500', screen);
       const message = await screen.getByText(/Erreur 500/);
       expect(message).toBeTruthy();
     })
   })
+});
 });
 
 

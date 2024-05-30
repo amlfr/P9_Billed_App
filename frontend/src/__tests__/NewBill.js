@@ -48,7 +48,6 @@ describe("Given I am connected as an employee", () => {
       await waitFor(() => screen.getByTestId('icon-mail'));
       const mailIcon = screen.getByTestId('icon-mail');
       console.log('windowIcon', mailIcon.classList);
-      //to-do write expect expression
       expect([...mailIcon.classList]).toContain('active-icon');
     })
   })
